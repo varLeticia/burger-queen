@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Button from './Button.js'
+import Home from './pages/Home';
+import Salao from './pages/Salao';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: "bannanaaa"
-    };
-  }
+function App(){
+  return (
+    <Router>
+    <div className="App">
+      <header className="App-header">
+        <Route path="/" exact component={Home}/>
+        <Route path="/salao" component={Salao}/>
+      </header>
+    </div>
+    </Router>
+  );
+}
 
-  render(){
-    return(
-        <div className="App">
-          <header className="App-header">
-          <input value={this.state.inputValue} onChange={(e) => console.log(e.target.value)}/>
-          <Button text='clique aqui' onClick={() => {alert()}}/>
-          </header>
-        </div>
-      );
-    }
-  }
-
-export default App;
+export default App; 
